@@ -1,0 +1,9 @@
+{
+  "isEmail": "Deve ser um endereço de e-mail válido.",
+  "isString": "Deve ser um texto.",
+  "isNotEmpty": "Não pode ser vazio.",
+  "isInt": "Deve ser um número inteiro.",
+  "minLength": "Deve ter no mínimo {{min}} caracteres.",
+  "maxLength": "Deve ter no máximo {{max}} caracteres.",
+  "shouldNotExist": "Este campo não deve existir."
+}

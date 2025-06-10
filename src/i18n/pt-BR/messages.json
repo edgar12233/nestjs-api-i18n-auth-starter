@@ -1,0 +1,26 @@
+{
+  "success": {
+    "LOGIN_SUCCESS": "Login realizado com sucesso",
+    "USER_CREATED": "Usuário criado com sucesso"
+  },
+  "errors": {
+    "FORBIDDEN": "Acesso proibido",
+    "INTERNAL_SERVER_ERROR": "Erro interno no servidor",
+    "INVALID_CREDENTIALS": "Credenciais inválidas",
+    "INVALID_GOOGLE_TOKEN": "Token do Google inválido",
+    "MISSING_GOOGLE_CONFIG": "Configuração do Google incompleta: é necessário configurar os Client IDs corretamente.",
+    "NOT_FOUND": "Recurso não encontrado",
+    "TOKEN_INVALID": "Token inválido",
+    "UNAUTHORIZED": "Acesso não autorizado",
+    "USER_NOT_FOUND": "Usuário não encontrado"
+  },
+  "validation": {
+    "VALIDATION_ERROR": "Campos inválidos",
+    "REQUIRED_FIELD": "Campo obrigatório",
+    "INVALID_EMAIL": "E-mail inválido"
+  },
+  "confirmation": {
+    "DELETE_USER_CONFIRM": "Você tem certeza que deseja excluir este usuário?",
+    "LOGOUT_CONFIRM": "Você deseja sair da aplicação?"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "isEmail": "Must be a valid email address.",
+  "isString": "Must be a string.",
+  "isNotEmpty": "Should not be empty.",
+  "isInt": "Must be an integer.",
+  "minLength": "Must be at least {{min}} characters long.",
+  "maxLength": "Must be at most {{max}} characters long.",
+  "shouldNotExist": "This field should not exist."
+}

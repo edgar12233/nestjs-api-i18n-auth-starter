@@ -1,0 +1,26 @@
+{
+  "success": {
+    "LOGIN_SUCCESS": "Login successful",
+    "USER_CREATED": "User created successfully"
+  },
+  "errors": {
+    "FORBIDDEN": "Forbidden access",
+    "INTERNAL_SERVER_ERROR": "Internal server error",
+    "INVALID_CREDENTIALS": "Invalid credentials",
+    "INVALID_GOOGLE_TOKEN": "Invalid Google token",
+    "MISSING_GOOGLE_CONFIG": "Incomplete Google configuration: you must set the Client IDs properly.",
+    "NOT_FOUND": "Resource not found",
+    "TOKEN_INVALID": "Invalid token",
+    "UNAUTHORIZED": "Unauthorized access",
+    "USER_NOT_FOUND": "User not found"
+  },
+  "validation": {
+    "VALIDATION_ERROR": "Invalid fields",
+    "REQUIRED_FIELD": "Required field",
+    "INVALID_EMAIL": "Invalid email"
+  },
+  "confirmation": {
+    "DELETE_USER_CONFIRM": "Are you sure you want to delete this user?",
+    "LOGOUT_CONFIRM": "Do you want to log out of the application?"
+  }
+}
