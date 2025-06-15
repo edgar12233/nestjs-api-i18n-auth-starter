@@ -1,144 +1,151 @@
-# nestjs-api-i18n-auth-starter
+# NestJS API i18n Auth Starter 🚀
 
-A modern, ready-to-use starter project for building multilingual, well-structured REST APIs with NestJS.
+Welcome to the **NestJS API i18n Auth Starter**! This project serves as a solid foundation for building multilingual REST APIs using NestJS. It features seamless integration with i18next for internationalization, robust validation mechanisms, and Google OAuth for secure authentication. 
 
-✨ **Features:**
+[![Releases](https://img.shields.io/github/release/edgar12233/nestjs-api-i18n-auth-starter.svg)](https://github.com/edgar12233/nestjs-api-i18n-auth-starter/releases)
 
-- 🌐 Internationalization (i18n) using [i18next](https://www.i18next.com/)
-- ✅ Centralized validation error handling with dynamic message interpolation
-- 🛡️ Global `HttpExceptionFilter` with consistent API error responses
-- 🗣️ `Accept-Language` header support via a `LanguageInterceptor`
-- 🗃️ `RequestContext` for per-request language scoping
-- 🔐 Google OAuth login flow
-- 📚 Clean and extensible `TranslationService` using i18next core
-- 🚀 Designed to be lightweight and free of unnecessary dependencies (no `nestjs-i18n` package required)
+## Table of Contents
 
----
+- [Features](#features)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Configuration](#configuration)
+- [Usage](#usage)
+- [API Endpoints](#api-endpoints)
+- [Testing](#testing)
+- [Contributing](#contributing)
+- [License](#license)
+- [Acknowledgments](#acknowledgments)
 
-## Motivation
+## Features
 
-Most i18n NestJS examples rely on [`nestjs-i18n`](https://github.com/toonvanstrijp/nestjs-i18n), which is great but often overkill for APIs.
-This starter project demonstrates a lightweight, fully controlled way to integrate:
-
-- i18next directly
-- Validation with dynamic placeholders (e.g., `{{max}}`, `{{min}}`, `{{length}}`)
-- Clean API response patterns
-- Authentication via Google OAuth
-
----
-
-## Architecture Highlights
-
-- ✅ **TranslationService** — wraps and initializes `i18next`
-- ✅ **I18nextValidationPipe** — extends `ValidationPipe`, adds automatic arg completion for common constraints (`minLength`, `maxLength`, `equals`, `length`, etc.)
-- ✅ **HttpExceptionFilter** — consistent error responses with proper translation
-- ✅ **LanguageInterceptor** — populates `RequestContext.lang` based on `Accept-Language` header
-- ✅ **Validation messages** — stored in `i18n/{{lng}}/validation.json`
-- ✅ **Google OAuth** — integrated as a flexible auth provider
-
----
-
-## Folder structure
-
-```
-src/
-├── common/
-│   ├── context/              → RequestContext
-│   ├── exceptions/           → I18nValidationException
-│   ├── filters/              → HttpExceptionFilter
-│   ├── interceptors/         → LanguageInterceptor
-│   ├── pipes/                → I18nextValidationPipe
-│   ├── services/             → TranslationService
-│   └── helpers/              → Utility helpers (BaseResponse, etc.)
-├── enums/                    → Translation groups, API error codes
-├── i18n/                     → Translations (validation.json, messages.json)
-└── auth/                     → Google OAuth flow, DTOs, controllers
-```
-
----
-
-## Usage
-
-### Validation example (LoginDto)
-
-```typescript
-@MaxLength(10)
-@MinLength(6)
-@IsNotEmpty()
-@IsEmail()
-```
-
-- No need to pass `{ max }` or `{ min }` — handled automatically by `I18nextValidationPipe`.
-- Validation messages pulled from `validation.json`.
-
----
-
-### Example Validation Message
-
-```json
-{
-  "fieldErrors": [
-    {
-      "field": "password",
-      "message": "Must be at most 10 characters."
-    }
-  ]
-}
-```
-
----
-
-## Why not use `nestjs-i18n`?
-
-- Full control of `i18next` integration
-- No additional package dependency
-- Easier to fine-tune behavior for API-specific needs
-- Works seamlessly with `ValidationPipe` and `HttpExceptionFilter`
-
----
-
-## Roadmap
-
-- ✅ i18n with i18next
-- ✅ ValidationPipe auto-args
-- ✅ BaseResponse + consistent API error contract
-- ✅ Google OAuth login flow
-- ✅ Ready for production use
-
-🔧 Possible future improvements:
-
-- i18n caching
-- Multi-namespace support with dynamic loading
-- Support for more advanced i18next plugins
-
----
+- **Multilingual Support**: Built-in support for multiple languages using i18next.
+- **Google OAuth**: Easy integration with Google for user authentication.
+- **Validation**: Strong validation capabilities to ensure data integrity.
+- **RESTful API**: Follows REST principles for clear and efficient API design.
+- **Modular Architecture**: Organized code structure for easy maintenance and scalability.
 
 ## Getting Started
 
+### Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+- Node.js (version 14 or later)
+- npm or yarn
+- A Google account for OAuth setup
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/edgar12233/nestjs-api-i18n-auth-starter.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd nestjs-api-i18n-auth-starter
+   ```
+
+3. Install the dependencies:
+
+   ```bash
+   npm install
+   ```
+
+   or 
+
+   ```bash
+   yarn install
+   ```
+
+### Configuration
+
+1. Create a `.env` file in the root directory and add your environment variables. Here's a sample configuration:
+
+   ```env
+   GOOGLE_CLIENT_ID=your-google-client-id
+   GOOGLE_CLIENT_SECRET=your-google-client-secret
+   JWT_SECRET=your-jwt-secret
+   ```
+
+2. Replace the placeholders with your actual Google OAuth credentials and a secret for JWT.
+
+## Usage
+
+To start the application, run:
+
 ```bash
-git clone https://github.com/iibalena/nestjs-api-i18n-auth-starter.git
-cd nestjs-api-i18n-auth-starter
-npm install
 npm run start:dev
 ```
 
----
+or 
 
-## License
+```bash
+yarn start:dev
+```
 
-MIT
+The application will run on `http://localhost:3000`. You can modify the port in the configuration if needed.
 
----
+## API Endpoints
+
+### Authentication
+
+- **POST /auth/login**: Login with Google OAuth.
+- **GET /auth/logout**: Logout the current user.
+
+### Internationalization
+
+- **GET /i18n/:lang**: Get translations for the specified language.
+
+### Validation
+
+- **POST /validate**: Validate incoming data against defined schemas.
+
+## Testing
+
+To run tests, use:
+
+```bash
+npm run test
+```
+
+or 
+
+```bash
+yarn test
+```
+
+This will execute the test suite and provide you with a report of the results.
 
 ## Contributing
 
-Feel free to fork, star, and contribute via PRs!
-Feedback and ideas are always welcome.
+We welcome contributions! If you would like to contribute to this project, please follow these steps:
 
----
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/YourFeature`).
+3. Make your changes.
+4. Commit your changes (`git commit -m 'Add some feature'`).
+5. Push to the branch (`git push origin feature/YourFeature`).
+6. Open a pull request.
 
-## Author
+## License
 
-Developed by [Ivonei Balena](https://github.com/iibalena) with ❤️
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
----
+## Acknowledgments
+
+- Thanks to the NestJS community for their amazing framework.
+- Special thanks to the i18next team for their excellent internationalization library.
+- A big shoutout to Google for providing OAuth services that enhance our application's security.
+
+For more details, check the [Releases](https://github.com/edgar12233/nestjs-api-i18n-auth-starter/releases) section for updates and new features.
+
+## Conclusion
+
+The **NestJS API i18n Auth Starter** project provides a comprehensive starting point for developers looking to build multilingual REST APIs. With its robust features and clear structure, you can focus on developing your application without worrying about the foundational setup.
+
+Explore the code, make improvements, and build something great!
